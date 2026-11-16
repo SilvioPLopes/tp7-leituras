@@ -6,7 +6,7 @@ Aplicativo Flutter/Dart para organizar uma lista pessoal de livros. Possui duas 
 
 ## Executar
 
-Use Flutter estável 3.35 ou superior, Dart 3.9 ou superior e Android ou Chrome configurado. Para Android, use JDK 17 e Android SDK; o pacote requer Android API 24 ou superior.
+Use preferencialmente Flutter 3.44.0 (versão fixada na verificação automática), com Dart 3.9 ou superior e Android ou Chrome configurado. Para Android, use JDK 17 e Android SDK; o pacote requer Android API 24 ou superior.
 
 ```bash
 git clone --branch tp7-leituras https://github.com/SilvioPLopes/tp7-leituras.git
@@ -38,7 +38,7 @@ Os códigos persistidos dos status são `quero_ler`, `lendo` e `concluido`, sepa
 
 Este projeto usa a API clássica `SharedPreferences`, ainda disponibilizada pelo pacote, para demonstrar diretamente `getInstance`, `getString` e `setString`. A documentação também apresenta as APIs mais recentes `SharedPreferencesAsync` e `SharedPreferencesWithCache`.
 
-Preferências são adequadas a coleções pequenas e não substituem um banco de dados ou backup. Fechar e reabrir o app preserva os registros no mesmo aparelho. Desinstalar o aplicativo ou limpar seus dados pode removê-los. No navegador, use a mesma origem (incluindo porta) e perfil; evite navegação anônima. Para testar a reabertura Web com endereço fixo, use `flutter run -d chrome --web-port=7357`.
+Preferências são adequadas a coleções pequenas e não substituem um banco de dados ou backup. Fechar e reabrir o app preserva os registros no mesmo aparelho. Desinstalar o aplicativo ou limpar seus dados pode removê-los. No navegador, use a mesma origem (incluindo porta) e perfil; evite navegação anônima. Para testar a reabertura Web com o mesmo perfil do seu navegador, use `flutter run -d web-server --web-port=7357` e abra `http://localhost:7357` no seu navegador habitual. Reabra esse mesmo endereço e perfil. Sessões temporárias do Chrome iniciadas pelo Flutter podem usar um perfil diferente a cada execução.
 
 ## Estrutura
 
@@ -76,7 +76,7 @@ flutter test
 flutter build web
 ```
 
-O workflow `.github/workflows/flutter.yml` executa formatação, análise, testes e compilação Web no GitHub Actions. Os testes utilizam o armazenamento simulado do próprio pacote e recriam o aplicativo para verificar a recuperação dos registros.
+O workflow `.github/workflows/flutter.yml` utiliza Flutter 3.44.0 e executa formatação, análise, testes e compilação Web no GitHub Actions. Os testes utilizam o armazenamento simulado do próprio pacote e recriam o aplicativo para verificar a recuperação dos registros.
 
 A execução local do Flutter neste ambiente de preparação não está disponível devido ao bloqueio de segurança relatado no TP6. O formatador Dart e a validação estrutural podem ser executados localmente; consulte a aba Actions para o resultado efetivo dos testes e da compilação. A presença dos testes não significa que passaram.
 
